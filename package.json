@@ -1,0 +1,49 @@
+{
+  "name": "indecx-sdk-js",
+  "version": "1.0.0",
+  "description": "SDK universal para integração com INDECX - compatível com Ionic, Vue, Angular, React e JavaScript puro",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+ "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "build:prod": "NODE_ENV=production rollup -c rollup.config.js",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build:prod"
+  },
+  "keywords": [
+    "indecx",
+    "sdk",
+    "ionic",
+    "vue",
+    "angular",
+    "react",
+    "javascript",
+    "modal",
+    "api"
+  ],
+  "author": "INDECX <suporte@indecx.com.br>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indecx/indecx-sdk-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/indecx/indecx-sdk-js/issues"
+  },
+  "homepage": "https://github.com/indecx/indecx-sdk-js#readme",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-terser": "^0.4.0",
+    "rollup": "^3.20.0"
+  },
+  "engines": {
+    "node": ">=12"
+  }
+}

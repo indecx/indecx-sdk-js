@@ -1,0 +1,4 @@
+node_modules/
+dist/           # Alguns preferem não versionar o /dist
+.DS_Store
+*.log
