@@ -2,7 +2,7 @@
 
 SDK JavaScript universal para integração com INDECX. Compatível com Ionic, Vue.js, Angular, React e JavaScript puro.
 
-// Screenshot
+
 ![Screenshot](./Screenshot.png)
 
 ## 🚀 Instalação
