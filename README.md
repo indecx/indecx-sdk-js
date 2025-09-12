@@ -18,6 +18,7 @@ import indecx from 'indecx-sdk-js';
 // Inicializar o SDK
 indecx.init({
   companyId: 'sua-company-id',
+  actionId: 'sua-action-id',
   companyKey: 'sua-api-key',
   baseUrl: 'https://indecx.com/v2' // opcional
 });
@@ -46,8 +47,8 @@ try {
 // opções customizadas para título, largura e altura do modal (opcional)
 const options = {
   title: 'Pesquisa de satisfação',
-  width: '80%', 
-  height: '70%', 
+  width: '80%', // % ou px
+  height: '70%', // % ou px
 };
 
 indecx.showModal(link, options);
@@ -70,8 +71,9 @@ app.config.globalProperties.$indecx = indecx;
 // Inicializar
 indecx.init({
   companyId: 'sua-company-id',
+  actionId: 'sua-action-id',
   companyKey: 'sua-api-key',
-  actionId: 'sua-action-id'
+  baseUrl: 'https://indecx.com/v2' // opcional
 });
 
 // Uso em componente
@@ -79,10 +81,11 @@ export default {
   methods: {
     async abrirModal() {
       try {
-        await this.$indecx.generateAndShow({
+        await this.$indecx.generateLink({
           email: 'usuario@example.com',
           phone: '123456789099',
         });
+        this.$indecx.showModal(link);
       } catch (error) {
         console.error('Erro ao abrir modal:', error);
       }
@@ -106,7 +109,8 @@ export class AppModule {
     indecx.init({
       companyId: 'sua-company-id',
       companyKey: 'sua-api-key',
-      actionId: 'sua-action-id'
+      actionId: 'sua-action-id',
+      baseUrl: 'https://indecx.com/v2' // opcional
     });
   }
 }
@@ -122,10 +126,11 @@ import indecx from 'indecx-sdk-js';
 export class HomePage {
   async abrirModal() {
     try {
-      await indecx.generateAndShow({
+      await indecx.generateLink({
         email: 'usuario@example.com',
         phone: '123456789099',
       });
+      indecx.showModal(link);
     } catch (error) {
       console.error('Erro:', error);
     }
@@ -145,16 +150,18 @@ function App() {
     indecx.init({
       companyId: 'sua-company-id',
       companyKey: 'sua-api-key',
-      actionId: 'sua-action-id'
+      actionId: 'sua-action-id',
+      baseUrl: 'https://indecx.com/v2' // opcional
     });
   }, []);
 
   const handleOpenModal = async () => {
     try {
-      await indecx.generateAndShow({
+      const link = await indecx.generateLink({
         email: 'usuario@example.com',
         phone: '123456789099',
       });
+      indecx.showModal(link);
     } catch (error) {
       console.error('Erro:', error);
     }
@@ -196,10 +203,11 @@ function App() {
         // Usar
         document.getElementById('openModal').addEventListener('click', async () => {
             try {
-                await indecx.generateAndShow({
+                const link = await indecx.generateLink({
                     email: 'usuario@example.com',
                     phone: '123456789099',
                 });
+                indecx.showModal(link);
             } catch (error) {
                 console.error('Erro:', error);
             }
@@ -246,6 +254,7 @@ Inicializa o SDK.
 **Parâmetros:**
 - `config.companyId` (string): ID da empresa
 - `config.companyKey` (string): Chave da API
+- `config.actionId` (string): ID da ação
 - `config.baseUrl` (string, opcional): URL base da API
 
 ### `generateLink(params)`
