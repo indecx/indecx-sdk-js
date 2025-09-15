@@ -4,6 +4,7 @@ SDK JavaScript universal para integração com INDECX. Compatível com Ionic, Vu
 
 
 ![Screenshot](./Screenshot.png)
+<img src="./Screenshot.png" alt="Screenshot" width="600">
 
 ## 🚀 Instalação
 
